@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :conversations
   validates :username, :email, presence: true
   validates :username, uniqueness: true
   validates :email, format: {with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i}
