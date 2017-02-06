@@ -8,3 +8,8 @@
     <strong>Location:</strong> <%= @user.location ? @user.location : "N/A" %><br><br>
   </p>
 </div>
+<div class="profile_buttons">
+  <% if can_edit? %>
+    <%= button_to "Edit user", edit_user_path(@user), method: "get" %>
+  <% end %>
+</div>
