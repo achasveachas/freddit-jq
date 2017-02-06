@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170202024502) do
+ActiveRecord::Schema.define(version: 20170206031352) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 20170202024502) do
     t.datetime "created_at",                                                                                                  null: false
     t.datetime "updated_at",                                                                                                  null: false
     t.string   "image_url",       default: "http://i0.wp.com/www.artifacting.com/blog/wp-content/uploads/2010/11/Kitten.jpg"
+    t.integer  "age"
+    t.string   "location"
   end
 
 end
