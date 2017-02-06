@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @user ||= Pilot.find_by_id(params[:id])
+    @user ||= User.find_by_id(params[:id])
     if can_edit?
       @user.update(user_params)
       redirect_to @user
@@ -37,11 +37,11 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user ||= Pilot.find_by_id(params[:id])
+    @user ||= User.find_by_id(params[:id])
   end
 
   def destroy
-    @user ||= Pilot.find_by_id(params[:id])
+    @user ||= User.find_by_id(params[:id])
     if current_user.admin && current_user != @user
       @user.destroy
       redirect_to users_path
@@ -52,7 +52,7 @@ class UsersController < ApplicationController
   end
 
   def admin
-    @user ||= Pilot.find_by_id(params[:id])
+    @user ||= User.find_by_id(params[:id])
     if current_user.admin && current_user != @user
       @user.admin = !@user.admin
       @user.save
