@@ -12,7 +12,8 @@
   <% if can_edit? %>
     <%= button_to "Edit User", edit_user_path(@user), method: "get" %>
   <% end %>
-  <% if current_user && current_user.admin %>
-    <%= button_to "Ban User", user_ban_path(@user), method: "patch" %>
+  <% if current_user && current_user.admin && current_user != @user %>
+    <%= button_to ban_button, user_ban_path(@user), method: "patch" %>
+    <%= button_to admin_button, user_admin_path(@user), method: "patch" %>
   <% end %>
 </div>
