@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206031352) do
+ActiveRecord::Schema.define(version: 20170206033156) do
 
   create_table "comments", force: :cascade do |t|
     t.text     "body"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20170206031352) do
     t.string   "image_url",       default: "http://i0.wp.com/www.artifacting.com/blog/wp-content/uploads/2010/11/Kitten.jpg"
     t.integer  "age"
     t.string   "location"
+    t.boolean  "banned",          default: false
   end
 
 end
