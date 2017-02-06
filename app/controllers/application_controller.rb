@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
   end
 
   def can_edit?
-    current_user && !current_user.banned (current_user.admin || @user == current_user)
+    current_user && !current_user.banned && (current_user.admin || @user == current_user)
   end
 end
