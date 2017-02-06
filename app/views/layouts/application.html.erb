@@ -66,7 +66,8 @@
         </strong>
       </header>
       <div class="error">
-        <%= flash[:message] if flash[:message] %><br>
+        <%= content_tag(:div, flash[:notice], :class => "notice", :id => "flash_notice") if flash[:notice] %>
+        <%= content_tag(:div, flash[:error], :class => "error", :id => "flash_error") if flash[:error] %>
       </div>
 
         <%= yield %>
