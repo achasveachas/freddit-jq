@@ -61,6 +61,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def ban
+    @user ||= User.find_by_id(params[:id])
+    if current_user.admin && current_user != @user
+      @user.banned = !@user.banned
+      @user.save
+    else
+      flash[:error] = "You do not have permission to perform this action"
+    end
+  end
+
   private
 
   def user_params
