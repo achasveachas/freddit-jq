@@ -1,8 +1,10 @@
-<h1><%= @user.username %>'s profile:'</h1>
+<h1><%= @user.username %>'s profile:</h1>
 <%= image_tag @user.image_url, class: "profile_pic" %>
 <div class="profile_info">
   <p>
     <strong>Username:</strong> <%= @user.username %><br><br>
     <strong>Email:</strong> <%= @user.email %><br><br>
+    <strong>Age:</strong> <%= @user.age ? @user.age : "N/A" %><br><br>
+    <strong>Location:</strong> <%= @user.location ? @user.location : "N/A" %><br><br>
   </p>
 </div>
