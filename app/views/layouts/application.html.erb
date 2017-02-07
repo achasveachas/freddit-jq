@@ -58,13 +58,13 @@
       <a href="/conversations/new">New Conversation</a><br>
       <header class="branding">
         <h1>freddit</h1>
-        <strong>
-          <% if current_user %>
-            Welcome <%= current_user.username %>
-          <% else %>
-            Welcome!
-          <% end %>
-        </strong>
+        <h3>Welcome<%= " #{current_user.username}" if current_user %>!</h3>
+        <h4><%= link_to "Sign up", new_user_path if !current_user %>
+
+        <%= link_to "Sign in", signin_path if !current_user %>
+
+        <%= link_to "Log Out", logout_path if current_user %></h4>
+
       </header>
       <div class="container" role="main">
         <%= content_tag(:div, flash[:notice], :class => "notice", :id => "flash_notice") if flash[:notice] %>
