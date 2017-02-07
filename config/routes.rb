@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'
-  post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
 
   patch 'user/:id/ban' => 'users#ban', as: 'user_ban'
   patch 'user/:id/admin' => 'users#admin', as: 'user_admin'
