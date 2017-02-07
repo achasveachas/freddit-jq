@@ -1,5 +1,5 @@
 OmniAuth.config.logger = Rails.logger
 
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :github, ENV['GITHUB_CLIENT'], ENV['GITHUB_SECRET'], scope: "user"
+  provider :github, Figaro.env.github_client, Figaro.env.github_secret, scope: "user"
 end
