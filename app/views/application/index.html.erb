@@ -1,6 +1,6 @@
 <h2>Join a conversation or start a <%= link_to "new one", new_conversation_path %>:</h2><br>
-<ul>
+<ol>
   <% @conversations.each do |convo| %>
     <li><%= link_to convo.topic, convo %></li>
   <% end %>
-</ul>
+</ol>
