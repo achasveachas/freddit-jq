@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :can_edit?
 
   def index
-    render 'index'
+    @conversations = Conversation.all
   end
 
   private
