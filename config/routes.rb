@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   patch 'user/:id/admin' => 'users#admin', as: 'user_admin'
 
   resources :users
+
+  resources :conversations do
+    resources :comments
+  end
 end

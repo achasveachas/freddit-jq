@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :can_edit?
 
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.sort_by_last_reply
   end
 
   private
