@@ -1,0 +1,9 @@
+ .conversations a {
+  text-decoration: none;
+  color: #555;
+}
+
+ .conversations a:hover {
+  text-decoration: none;
+  color: #85929d;
+}
