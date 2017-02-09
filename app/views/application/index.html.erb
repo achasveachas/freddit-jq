@@ -1,6 +1,15 @@
 <h2>Join a conversation or start a <%= link_to "new one", new_conversation_path %>:</h2><br>
-<ol>
-  <% @conversations.each do |convo| %>
-    <li><%= link_to convo.topic, convo %></li>
-  <% end %>
-</ol>
+
+<% @conversations.each do |convo| %>
+  <h3><%= link_to convo.topic, convo %></h3>
+  <small>Started at <%="#{convo.created_at}" %> by
+    <% if convo.user %>
+      <%= link_to convo.user.username, convo.user %>
+    <% else %>
+      Deleted User
+    <% end %> <br>
+    <% if convo.comments.size > 1 %>
+      Last updated: <%="#{convo.comments.last.updated_at}" %> by <%= link_to convo.comments.last.user.username, convo.comments.last.user %>
+    <% end %>
+  </small>
+<% end %>
