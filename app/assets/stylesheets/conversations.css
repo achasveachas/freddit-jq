@@ -10,5 +10,13 @@
 
 .convo {
   border-bottom: 1px solid CadetBlue;
-  padding: 10px
+  padding: 10px;
+  margin: 10px
+}
+
+.pagination {
+  text-align: center;
+  font-size: 1.15em;
+  margin: 10px;
+
 }

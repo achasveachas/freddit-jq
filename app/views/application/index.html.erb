@@ -1,5 +1,8 @@
 <h2>Join a conversation or start a <%= link_to "new one", new_conversation_path %>:</h2><br>
 <div class="conversations">
+  <div class="pagination">
+    <%= paginate @conversations %>
+  </div>
   <% @conversations.each do |convo| %>
     <div class="convo">
       <h3><%= link_to convo.topic, convo %></h3>
@@ -15,4 +18,7 @@
       </small>
     </div>
   <% end %>
+  <div class="pagination">
+    <%= paginate @conversations %>
+  </div>
 </div>
