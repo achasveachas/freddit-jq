@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :can_edit?
 
   def index
-    @conversations = Conversation.order(sort_column: :desc)
+    @conversations = Conversation.order(sort_column: :desc).page(params[:page])
   end
 
   private
