@@ -40,6 +40,7 @@ gem 'omniauth-github'
 gem 'faker', '~> 1.7', '>= 1.7.2'
 
 gem 'figaro'
+gem 'kaminari'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
