@@ -4,7 +4,8 @@ class Comment < ApplicationRecord
   belongs_to :conversation, foreign_key: :ancestor_id
   has_many :comments, as: :commentable
 
-  after_create :update_ancestor_sort_column, :set_ancestor
+  before_create :set_ancestor
+  after_create :update_ancestor_sort_column
 
 
 
@@ -21,7 +22,8 @@ class Comment < ApplicationRecord
   end
 
   def update_ancestor_sort_column
-
+    self.conversation.sort_column = self.created_at
+    self.conversation.save
   end
 
 end
