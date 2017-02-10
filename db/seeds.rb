@@ -33,3 +33,8 @@ Comment.all.each do |comment|
     c.save
   end
 end
+#  adding the sort_column to the Conversations in the db
+# Conversation.all.each do |convo|
+#   convo.sort_column = convo.comments.last.created_at
+#   convo.save
+# end

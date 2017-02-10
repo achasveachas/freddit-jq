@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 
   def index
     @conversations = Conversation.sort_by_last_reply
+    binding.pry
   end
 
   private
