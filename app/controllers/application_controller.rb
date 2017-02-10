@@ -3,8 +3,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :can_edit?
 
   def index
-    @conversations = Conversation.sort_by_last_reply
-    binding.pry
+    @conversations = Conversation.order(sort_column: :desc)
   end
 
   private
