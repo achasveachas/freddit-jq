@@ -1,0 +1,11 @@
+<div class="reply">
+  <%= comment.body %>
+  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+
+
+  <ul>
+    <%= link_to "Reply", [@conversation, Comment.new] %>
+    <%= render(partial: 'comments/comment', collection: comment.comments) %>
+  </ul>
+
+</div>
