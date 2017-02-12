@@ -18,5 +18,15 @@
   text-align: center;
   font-size: 1.15em;
   margin: 10px;
+}
 
+.pagination span {
+  border: 1px solid CadetBlue;
+  border-radius: 3px;
+  margin: 4px;
+  padding: 4px;
+}
+
+.pagination span:hover {
+  background: brown
 }
