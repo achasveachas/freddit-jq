@@ -20,5 +20,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    @comment = Comment.find_by_id(params[:id])
+    @comment.body = "Comment Deleted"
+    @comment.save
+    redirect_to :back
   end
 end
