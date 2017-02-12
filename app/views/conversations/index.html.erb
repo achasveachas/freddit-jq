@@ -7,7 +7,7 @@
     <div class="convo" id="convo-id-<%= convo.id %>">
       <h3><%= link_to convo.topic, convo %></h3>
       <div id="comment-id-<%= convo.comments.first.id %>">
-        <%= truncate(convo.comments.first.body, length: 200, separator: ' ') {link_to "(Read more)", [convo, convo.comments.first]} %>
+        <%= truncate(convo.comments.first.body, length: 200, separator: ' ') {link_to "(Read more)", [convo, convo.comments.first], class: 'js-readMore'} %>
       </div>
       <small>Started <%="#{time_ago_in_words(convo.created_at)} ago" %> by
         <% if convo.user %>

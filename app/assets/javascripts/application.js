@@ -14,3 +14,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('.js-readMore').click(function (event) {
+    event.preventDefault()
+    showComment(event)
+  })
+})
