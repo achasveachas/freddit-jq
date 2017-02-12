@@ -2,7 +2,5 @@
 <small>Submitted <%= time_ago_in_words(@conversation.created_at) %> ago</small>
 <h3>Comments</h3>
 
-<ul>
-  <%= render(partial: 'comments/comment', collection: @conversation.comments) %>
-</ul>
+<%= render(partial: 'comments/comment', collection: @conversation.comments) %>
 <%= link_to "Reply", [@conversation, Comment.new] %>
