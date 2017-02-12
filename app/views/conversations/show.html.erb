@@ -3,4 +3,4 @@
 <h3>Comments</h3>
 
 <%= render(partial: 'comments/comment', collection: @conversation.comments) %>
-<%= link_to "Reply", new_conversation_comment_path(@conversation) if current_user %>
+<%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-reply' if current_user %>

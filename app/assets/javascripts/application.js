@@ -20,4 +20,9 @@ $(document).ready(function() {
     event.preventDefault()
     showComment(event)
   })
+
+  $('.js-reply').click(function (event) {
+    event.preventDefault()
+    renderReply(event)
+  })
 })

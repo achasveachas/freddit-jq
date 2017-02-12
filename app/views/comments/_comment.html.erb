@@ -1,10 +1,10 @@
-<div class="reply" id="comment-<%= comment.id %>">
+<div class="reply">
   <%= comment.body %><br>
 
   <% if comment.body != "Comment Deleted" %>
     <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, comment.user %></small><br>
-    <div class="reply-form">
-      <%= link_to "Reply", new_comment_comment_path(comment) if current_user %>
+    <div class="reply-form" id="comment-<%= comment.id %>">
+      <%= link_to "Reply", new_comment_comment_path(comment), class: 'js-reply', :data => {id: comment.id} if current_user %>
       <%= link_to "Delete", comment_path(comment), method: :delete if current_user %>
     </div>
   <% end %>

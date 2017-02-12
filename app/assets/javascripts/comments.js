@@ -5,3 +5,9 @@ function showComment(event) {
       $(`#comment-id-${json.id}`).html(json.body)
     })
 }
+
+function renderReply(event) {
+  $.get(event.target.href, function(data) {
+    $('#comment-' + $(event.target).data('id')).html(data)
+  })
+}

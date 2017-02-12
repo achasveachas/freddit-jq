@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    render 'comments/_form', layout: false
   end
 
   def create
