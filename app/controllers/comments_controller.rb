@@ -3,6 +3,8 @@ class CommentsController < ApplicationController
   end
 
   def show
+    @comment = Comment.find_by_id(params[:id])
+    render json: @comment
   end
 
   def new
