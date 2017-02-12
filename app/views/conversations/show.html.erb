@@ -3,4 +3,6 @@
 <h3>Comments</h3>
 
 <%= render(partial: 'comments/comment', collection: @conversation.comments) %>
-<%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-reply' if current_user %>
+<div class="reply-form" id="comment-c<%= @conversation.id %>">
+  <%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-reply', :data => {id: "c#{@conversation.id}"} if current_user %>
+</div>
