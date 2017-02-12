@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  get 'conversations/index'
+
+  get 'conversations/show'
+
+  get 'conversations/new'
+
+  get 'conversations/create'
+
+  get 'conversations/edit'
+
+  get 'conversations/update'
+
+  get 'conversations/destroy'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'application#index'
 
