@@ -7,7 +7,7 @@
     <div class="convo">
       <h3><%= link_to convo.topic, convo %></h3>
       <div class="comments">
-        
+        <%= truncate(convo.comments.first.body) %>
       </div>
       <small>Started <%="#{time_ago_in_words(convo.created_at)} ago" %> by
         <% if convo.user %>
