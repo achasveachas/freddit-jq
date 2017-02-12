@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :find_commentable, only: [:new, :create]
+
   def index
   end
 
