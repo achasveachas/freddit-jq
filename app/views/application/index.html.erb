@@ -6,14 +6,14 @@
   <% @conversations.each do |convo| %>
     <div class="convo">
       <h3><%= link_to convo.topic, convo %></h3>
-      <small>Started at <%="#{convo.created_at}" %> by
+      <small>Started <%="#{time_ago_in_words(convo.created_at)} ago" %> by
         <% if convo.user %>
         <%= link_to convo.user.username, convo.user %>
         <% else %>
         Deleted User
         <% end %> <br>
         <% if convo.comments.size > 1 %>
-        Last updated: <%="#{convo.comments.last.updated_at}" %> by <%= link_to convo.comments.last.user.username, convo.comments.last.user %>
+        Last updated: <%="#{time_ago_in_words(convo.comments.last.updated_at)} ago" %> by <%= link_to convo.comments.last.user.username, convo.comments.last.user %>
         <% end %>
       </small>
     </div>
