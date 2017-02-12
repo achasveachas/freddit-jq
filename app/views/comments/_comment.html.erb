@@ -1,10 +1,12 @@
 <div class="reply" id="comment-<%= comment.id %>">
   <%= comment.body %><br>
-  
+
   <% if comment.body != "Comment Deleted" %>
     <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, comment.user %></small><br>
-    <%= link_to "Reply", new_comment_comment_path(comment) if current_user %>
-    <%= link_to "Delete", comment_path(comment), method: :delete if current_user %>
+    <div class="reply-form">
+      <%= link_to "Reply", new_comment_comment_path(comment) if current_user %>
+      <%= link_to "Delete", comment_path(comment), method: :delete if current_user %>
+    </div>
   <% end %>
 
   <%= render(partial: 'comments/comment', collection: comment.comments) %>
