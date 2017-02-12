@@ -2,10 +2,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :can_edit?
 
-  def index
-    @conversations = Conversation.order(sort_column: :desc).page(params[:page])
-  end
-
   private
 
   def login(user)
