@@ -52,10 +52,9 @@
 
   <body>
     <div class="wrapper">
-      <%= link_to "Home", root_path %>
-      <a href="/conversations">Conversations</a>
+      <%= link_to "Conversations", root_path %>
       <%= link_to "Users", users_path %>
-      <a href="/conversations/new">New Conversation</a><br>
+      <%= link_to "New Conversation", new_conversation_path %>
       <header class="branding">
         <h1>freddit</h1>
         <h3>Welcome<%= " #{current_user.username}" if current_user %>!</h3>
