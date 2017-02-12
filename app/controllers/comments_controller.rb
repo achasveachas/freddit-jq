@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+  before_action :find_commentable, only: [:new, :create]
   def index
   end
 
@@ -13,16 +14,18 @@ class CommentsController < ApplicationController
   def create
   end
 
-  def edit
-  end
-
-  def update
-  end
-
   def destroy
     @comment = Comment.find_by_id(params[:id])
     @comment.body = "Comment Deleted"
     @comment.save
     redirect_to :back
   end
+
+  private
+
+  def find_commentable
+    @commentable = Comment.find_by_id(params[:comment_id]) if params[:comment_id]
+    @commentable = Conversation.find_by_id(params[:conversation_id]) if params[:conversation_id]
+  end
+
 end
