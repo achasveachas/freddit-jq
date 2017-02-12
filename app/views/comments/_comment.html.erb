@@ -1,9 +1,8 @@
 <div class="reply" id="comment-<%= comment.id %>">
-  <%= comment.body %>
-  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago</small>
+  <%= comment.body %><br>
+  <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, comment.user %></small><br>
+  <%= link_to "Reply", new_comment_comment_path(comment) %>
 
-
-  <%= link_to "Reply", [comment, Comment.new] %>
   <%= render(partial: 'comments/comment', collection: comment.comments) %>
 
 </div>
