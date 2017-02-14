@@ -1,3 +1,15 @@
+$(document).ready(function() {
+  $('.js-readMore').click(function (event) {
+    event.preventDefault()
+    showComment(event)
+  })
+
+  $('.js-reply').click(function (event) {
+    event.preventDefault()
+    renderReplyForm(event)
+  })
+})
+
 function showComment(event) {
   fetch(event.target.href)
     .then(res => res.json())

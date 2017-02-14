@@ -30,4 +30,8 @@ class CommentsController < ApplicationController
     @commentable = Conversation.find_by_id(params[:conversation_id]) if params[:conversation_id]
   end
 
+  def comment_params
+    params.require(:comment).allow(:body)
+  end
+
 end
