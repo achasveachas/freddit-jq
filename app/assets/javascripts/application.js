@@ -23,6 +23,6 @@ $(document).ready(function() {
 
   $('.js-reply').click(function (event) {
     event.preventDefault()
-    renderReply(event)
+    renderReplyForm(event)
   })
 })

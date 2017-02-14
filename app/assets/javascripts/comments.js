@@ -6,7 +6,7 @@ function showComment(event) {
     })
 }
 
-function renderReply(event) {
+function renderReplyForm(event) {
   $.get(event.target.href, function(data) {
     $('#comment-' + $(event.target).data('id')).html(data)
   })
