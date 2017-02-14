@@ -4,7 +4,7 @@ class Comment < ApplicationRecord
   belongs_to :conversation, foreign_key: :ancestor_id
   has_many :comments, as: :commentable
 
-  before_create :set_ancestor
+  before_validation :set_ancestor
   after_create :update_ancestor_sort_column
 
 

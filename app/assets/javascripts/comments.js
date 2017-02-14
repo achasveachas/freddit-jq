@@ -10,6 +10,7 @@ $(function() {
   })
 
   $(document).on('click', '.js-submit', function() {
+    event.preventDefault()
     submitReply(event)
   })
 })
@@ -31,6 +32,10 @@ function renderReplyForm(event) {
 function submitReply(event) {
   var url = event.srcElement.form.action
   var id = $(event.target).data('id')
-  var data = $(event.srcElement.form).serialize()
-  
+  var values = $(event.srcElement.form).serialize()
+  var posting = $.post(url, values)
+
+  posting.done(function(data) {
+    $(`#reply-to-${id}`).html(data);
+  })
 }

@@ -1,8 +1,9 @@
 <h1><%= @conversation.topic %></h1>
 <small>Started <%= time_ago_in_words(@conversation.created_at) %> ago by <%= link_to @conversation.user.username, @conversation.user %></small><br>
 <h3>Comments</h3>
-
-<%= render(partial: 'comments/comment', collection: @conversation.comments) %>
+<div class="reply" id="reply-to-<%= @conversation.id %>">
+  <%= render(partial: 'comments/comment', collection: @conversation.comments) %>
+</div>
 <div class="reply-form" id="comment-c<%= @conversation.id %>">
   <%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-reply', :data => {id: "c#{@conversation.id}"} if current_user %>
 </div>

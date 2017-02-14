@@ -14,6 +14,15 @@ class CommentsController < ApplicationController
   end
 
   def create
+    if current_user
+      @comment = @commentable.comments.create(comment_params)
+      @comment.user = current_user
+      if @comment.save
+        render 'comments/_comment', layout: false
+      end
+    else
+      raise "You need to be logged in"
+    end
   end
 
   def destroy
@@ -31,7 +40,7 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).allow(:body)
+    params.require(:comment).permit(:body)
   end
 
 end
