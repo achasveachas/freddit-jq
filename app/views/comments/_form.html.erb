@@ -1,4 +1,4 @@
 <%= form_for [@commentable, Comment.new] do |f| %>
   <%= f.text_area :body, placeholder: "Add a reply" %><br>
-  <%= f.submit "Reply" %>
+  <%= f.submit "Reply", class: "js-submit", data: {id: @commentable.id}  %>
 <% end %>

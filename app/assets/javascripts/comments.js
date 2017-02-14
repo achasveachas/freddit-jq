@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(function() {
   $('.js-readMore').click(function (event) {
     event.preventDefault()
     showComment(event)
@@ -7,6 +7,10 @@ $(document).ready(function() {
   $('.js-reply').click(function (event) {
     event.preventDefault()
     renderReplyForm(event)
+  })
+
+  $(document).on('click', '.js-submit', function() {
+    submitReply(event)
   })
 })
 
@@ -22,4 +26,11 @@ function renderReplyForm(event) {
   $.get(event.target.href, function(data) {
     $('#comment-' + $(event.target).data('id')).html(data)
   })
+}
+
+function submitReply(event) {
+  var url = event.srcElement.form.action
+  var id = $(event.target).data('id')
+  var data = $(event.srcElement.form).serialize()
+  
 }
