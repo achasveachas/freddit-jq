@@ -6,8 +6,8 @@
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, comment.user %></small><br>
   <div class="reply-form" id="comment-<%= comment.id %>">
     <%= link_to "Reply", new_comment_comment_path(comment), class: 'js-reply', :data => {id: comment.id} if can_edit? %>
-    <%= link_to "Delete", comment_path(comment), method: :delete if can_edit? %>
   </div>
+  <%= link_to "Delete", comment_path(comment), method: :delete if can_edit? %>
 <% end %>
 
 <div class="reply" id="reply-to-<%= comment.id %>">

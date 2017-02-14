@@ -37,5 +37,6 @@ function submitReply(event) {
 
   posting.done(function(data) {
     $(`#reply-to-${id}`).html(data);
+    $('form').remove()
   })
 }
