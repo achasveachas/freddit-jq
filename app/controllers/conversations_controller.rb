@@ -21,4 +21,10 @@ class ConversationsController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def conversation_params
+    params.require(:conversation).permit(:topic, comment_attributes: [:body])
+  end
 end

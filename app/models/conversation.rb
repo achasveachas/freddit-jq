@@ -3,6 +3,7 @@ class Conversation < ApplicationRecord
   validates :topic, presence: true
   has_many :comments, as: :commentable, :dependent => :destroy
   before_create :init_sort_column
+  accepts_nested_attributes_for :comments
 
   private
 
