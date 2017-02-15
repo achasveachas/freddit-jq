@@ -44,6 +44,6 @@ function submitReply(event) {
 function Comment(id, body, user, comments) {
   this.id = id
   this.body = body
-  this.user = user
+  this.user = new User(user.id, user.username, user.email, user.image_url, user.admin, user.banned, user.age, user.location)
   this.comments = comments
 }
