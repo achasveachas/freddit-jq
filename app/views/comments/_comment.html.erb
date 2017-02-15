@@ -3,7 +3,7 @@
 <div class="image">
   <%= image_tag comment.user.image_url, size: "35x35" %>
 </div>
-<div class="body">
+<div class="body" id="body-<%= comment.id %>">
   <%= simple_format(comment.body) %><br>
 </div>
 

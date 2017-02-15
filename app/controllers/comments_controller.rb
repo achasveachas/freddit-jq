@@ -33,7 +33,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = Comment.find_by_id(params[:id])
-    if can_edit(@comment)
+    if can_edit?(@comment)
       @comment.update(comment_params)
       render json: @comment
     else

@@ -13,6 +13,11 @@ $(function() {
     event.preventDefault()
     submitReply(event)
   })
+
+  $(document).on('click', '.js-update', function() {
+    event.preventDefault()
+    submitUpdate(event)
+  })
 })
 
 function showComment(event) {
@@ -38,6 +43,19 @@ function submitReply(event) {
 
   posting.done(function(data) {
     $(`#reply-to-${id}`).append(data);
+    $('form').remove()
+  })
+}
+
+function submitUpdate(event) {
+  var url = event.srcElement.form.action
+  var id = $(event.target).data('id')
+  var values = $(event.srcElement.form).serialize()
+  var posting = $.post(url, values);
+
+  posting.done(function(json) {
+    var comment = new Comment(json.id, json.body, json.user, json.comments)
+    $(`#body-${id}`).html(comment.body);
     $('form').remove()
   })
 }
