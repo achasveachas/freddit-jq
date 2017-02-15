@@ -4,7 +4,7 @@ $(function() {
     showComment(event)
   })
 
-  $('.js-reply').click(function (event) {
+  $(document).on('click', '.js-reply', function() {
     event.preventDefault()
     renderReplyForm(event)
   })
