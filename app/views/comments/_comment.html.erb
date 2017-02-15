@@ -1,6 +1,11 @@
 <% comment = @comment unless !!comment %>
 
-<%= comment.body %><br>
+<div class="body">
+  <%= image_tag comment.user.image_url, size: "35x35" %>
+</div>
+<div class="body">
+  <%= comment.body %><br>
+</div>
 
 <% if comment.body != "Comment Deleted" %>
   <small>Submitted <%= time_ago_in_words(comment.created_at) %> ago by <%= link_to comment.user.username, comment.user %></small><br>
