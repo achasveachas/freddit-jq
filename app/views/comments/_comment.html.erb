@@ -4,7 +4,7 @@
   <%= image_tag comment.user.image_url, size: "35x35" %>
 </div>
 <div class="body">
-  <%= comment.body %><br>
+  <%= simple_format(comment.body) %><br>
 </div>
 
 <% if comment.body != "Comment Deleted" %>
