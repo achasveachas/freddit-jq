@@ -4,7 +4,7 @@ $(function() {
     showComment(event)
   })
 
-  $(document).on('click', '.js-reply', function() {
+  $(document).on('click', '.js-form', function() {
     event.preventDefault()
     renderReplyForm(event)
   })
@@ -37,7 +37,7 @@ function submitReply(event) {
   var posting = $.post(url, values)
 
   posting.done(function(data) {
-    $(`#reply-to-${id}`).html(data);
+    $(`#reply-to-${id}`).append(data);
     $('form').remove()
   })
 }
