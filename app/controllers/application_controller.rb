@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_id(session[:user_id]) unless session[:user_id] == nil
   end
 
-  def can_edit?
-    current_user && !current_user.banned && (current_user.admin || @user == current_user)
+  def can_edit?(content)
+    current_user && !current_user.banned && (current_user.admin || content.user == current_user)
   end
 end
