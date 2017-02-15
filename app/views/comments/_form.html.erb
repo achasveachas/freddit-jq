@@ -1,4 +1,5 @@
 <%= form_for [@commentable, @comment] do |f| %>
   <%= f.text_area :body, placeholder: "Add a reply" %><br>
-  <%= f.submit "Reply", class: "js-submit", data: {id: @commentable.id}  %>
+  <%= f.submit "Reply", class: "js-submit", data: {id: @commentable.id} unless @comment.persisted? %>
+  <%= f.submit "Update", class: "js-update", data: {id: @comment.id} if @comment.persisted? %>
 <% end %>

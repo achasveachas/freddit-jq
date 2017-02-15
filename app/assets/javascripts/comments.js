@@ -6,7 +6,7 @@ $(function() {
 
   $(document).on('click', '.js-form', function() {
     event.preventDefault()
-    renderReplyForm(event)
+    renderForm(event)
   })
 
   $(document).on('click', '.js-submit', function() {
@@ -24,7 +24,7 @@ function showComment(event) {
     })
 }
 
-function renderReplyForm(event) {
+function renderForm(event) {
   $.get(event.target.href, function(data) {
     $('#comment-' + $(event.target).data('id')).html(data)
   })
