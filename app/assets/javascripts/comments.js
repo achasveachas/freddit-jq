@@ -40,3 +40,10 @@ function submitReply(event) {
     $('form').remove()
   })
 }
+
+function Comment(id, body, user, comments) {
+  this.id = id
+  this.body = body
+  this.user = user
+  this.comments = comments
+}
