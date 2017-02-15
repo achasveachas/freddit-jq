@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: [:new, :create]
+  before_action :find_commentable, only: [:new, :create, :edit, :update]
 
   def index
   end
@@ -10,6 +10,7 @@ class CommentsController < ApplicationController
   end
 
   def new
+    @comment = @commentable.comments.build
     render 'comments/_form', layout: false
   end
 
@@ -23,6 +24,15 @@ class CommentsController < ApplicationController
     else
       raise "You need to be logged in"
     end
+  end
+
+  def edit
+    @comment = Comment.find_by_id(params[:id])
+    render 'comments/_form', layout: false
+  end
+
+  def update
+
   end
 
   def destroy
