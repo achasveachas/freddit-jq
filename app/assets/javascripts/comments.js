@@ -19,7 +19,8 @@ function showComment(event) {
   fetch(event.target.href)
     .then(res => res.json())
     .then((json) => {
-      $(`#comment-id-${json.id}`).html(json.body)
+      var comment = new Comment(json.id, json.body, json.user, json.comments)
+      $(`#comment-id-${comment.id}`).html(comment.body)
     })
 }
 
