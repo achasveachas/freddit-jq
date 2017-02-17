@@ -1,2 +1,5 @@
-<h1>Conversations#new</h1>
-<p>Find me in app/views/conversations/new.html.erb</p>
+<h1>New Conversation</h1>
+<%= form_for @conversation do |f| %>
+  <%= f.label :topic %>
+  <%= f.text_field :topic, placeholder: "Enter Topic" %>
+<% end %>

@@ -12,6 +12,7 @@ class ConversationsController < ApplicationController
       flash[:error] = "You must log in to start a conversation"
       redirect_to signin_path
     end
+    @conversation = current_user.conversations.build
   end
 
   def create
