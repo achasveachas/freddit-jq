@@ -9,7 +9,7 @@
   </p>
 </div>
 <div class="profile_buttons">
-  <% if can_edit? %>
+  <% if current_user.admin || @user == current_user %>
     <%= button_to "Edit User", edit_user_path(@user), method: "get" %>
   <% end %>
   <% if current_user && current_user.admin && current_user != @user %>
