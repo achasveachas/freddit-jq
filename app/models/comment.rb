@@ -3,6 +3,7 @@ class Comment < ApplicationRecord
   belongs_to :commentable, polymorphic: true
   belongs_to :conversation, foreign_key: :ancestor_id
   has_many :comments, as: :commentable
+  validates :body, presence: true
 
   before_validation :set_ancestor
   after_create :update_ancestor_sort_column

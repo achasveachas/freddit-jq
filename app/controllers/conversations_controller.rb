@@ -10,10 +10,17 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversation = current_user.conversations.build
+    @conversation ||= current_user.conversations.build
   end
 
   def create
+    @conversation = current_user.conversations.new(conversation_params)
+    if @conversation.save
+      redirect_to @conversation
+    else
+      flash[:error] = @conversation.errors.full_messages
+      render :new
+    end
   end
 
   def edit
