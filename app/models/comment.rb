@@ -5,7 +5,7 @@ class Comment < ApplicationRecord
   has_many :comments, as: :commentable
   validates :body, presence: true
 
-  before_save :set_ancestor
+  before_validation :set_ancestor
   after_create :update_ancestor_sort_column
 
 
