@@ -1,4 +1,6 @@
 class ConversationsController < ApplicationController
+  before_action :verify_user, only: [:new, :create, :edit, :update, :destroy]
+
   def index
     @conversations = Conversation.order(sort_column: :desc).page(params[:page])
   end
@@ -8,12 +10,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    if !current_user
-      flash[:error] = "You must log in to start a conversation"
-      redirect_to signin_path
-    else
-      @conversation = current_user.conversations.build
-    end
+    @conversation = current_user.conversations.build
   end
 
   def create

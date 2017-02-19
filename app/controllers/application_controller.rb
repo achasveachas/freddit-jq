@@ -19,4 +19,11 @@ class ApplicationController < ActionController::Base
   def can_edit?(content)
     current_user && !current_user.banned && (current_user.admin || content.user == current_user)
   end
+
+  def verify_user
+    if !current_user
+      flash[:error] = "You must log in to start a conversation"
+      redirect_to signin_path
+    end
+  end
 end
