@@ -11,11 +11,16 @@ class ConversationsController < ApplicationController
 
   def new
     @conversation ||= current_user.conversations.build
+    @comment = @conversation.comments.build
   end
 
   def create
     @conversation = current_user.conversations.new(conversation_params)
-    if @conversation.save
+    @comment = @conversation.comments.first
+    @comment.user = current_user
+    @comment.commentable = @conversation
+    @comment.conversation = @conversation
+    if @conversation.save && @comment.save
       redirect_to @conversation
     else
       flash[:error] = @conversation.errors.full_messages
