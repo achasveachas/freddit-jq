@@ -26,7 +26,9 @@
     <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
 
     <div class="js-reply" id="reply-to-{{id}}" data-id="{{id}}">
-      <a href="/comments/{{id}}/comments">Show {{comments.length}} comment/s</a>
+      {{#if comments.length}}
+        <a href="/comments/{{id}}/comments">Show {{comments.length}} comment/s</a>
+      {{/if}}
     </div>
 
   </div>
