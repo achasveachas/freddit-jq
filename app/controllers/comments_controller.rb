@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
       @comment = @commentable.comments.create(comment_params)
       @comment.user = current_user
       if @comment.save
-        render 'comments/_comment', layout: false
+        render json: @comment
       end
     else
       raise "You need to be logged in"

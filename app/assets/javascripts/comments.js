@@ -61,8 +61,11 @@ function submitReply(event) {
   var values = $(event.srcElement.form).serialize()
   var posting = $.post(url, values)
 
-  posting.done(function(data) {
-    $(`#reply-to-${id}`).append(data);
+  posting.done(function(protoComment) {
+    debugger
+    var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments, protoComment.created_at)
+    var renderedComment = comment.formatComment()
+    $(`#reply-to-${id}`).append(renderedComment);
     $('form').remove()
   })
 }
