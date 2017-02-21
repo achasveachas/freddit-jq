@@ -1,4 +1,15 @@
 <h1>New Conversation</h1>
+<% if @conversation.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@conversation.errors.count, "error") %> prohibited this conversation from being saved:</h2>
+
+    <ul>
+    <% @conversation.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for @conversation do |f| %>
   <%= f.label :topic %><br>
   <%= f.text_field :topic, placeholder: "Enter Topic" %><br><br>

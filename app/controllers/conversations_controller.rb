@@ -23,7 +23,6 @@ class ConversationsController < ApplicationController
     if @conversation.save && @comment.save
       redirect_to @conversation
     else
-      flash[:error] = @conversation.errors.full_messages
       render :new
     end
   end
