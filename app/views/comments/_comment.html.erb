@@ -17,5 +17,5 @@
 <% end %>
 
 <div class="reply" id="reply-to-<%= comment.id %>">
-  <%= render(partial: 'comments/comment', collection: comment.comments) %>
+  <%= link_to "Show #{comment.comments.size} #{'reply'.pluralize(comment.comments.size)}", comment_comments_path(comment) if comment.comments.size > 0 %>
 </div>
