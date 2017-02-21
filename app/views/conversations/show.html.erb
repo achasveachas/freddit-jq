@@ -7,7 +7,7 @@
 <div class="reply-form" id="comment-<%= @conversation.id %>">
   <%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-form', :data => {id: @conversation.id} if current_user %>
 </div>
-
+<time></time>
 <script id="reply-template" type="text/x-handlebars-template">
   <div class="reply" id="reply-to-<%= @conversation.id %>">
 
@@ -18,7 +18,7 @@
       <p>{{body}}</p><br>
     </div>
 
-    <small>Submitted by <a href="/users/{{user.id}}">{{user.username}}</a></small><br>
+    <small>Submitted <time class="timeago" datetime="{{created_at}}">{{created_at}}</time> by <a href="/users/{{user.id}}">{{user.username}}</a></small><br>
     <div class="reply-form" id="comment-{{id}}">
       <a class="js-form" data-id="{{id}}" href="/comments/{{id}}/comments/new">Reply</a>
       <a class="js-form" data-id="{{id}}" href="/comments/<%= @conversation.id %>/comments/{{id}}/edit">Edit</a>
