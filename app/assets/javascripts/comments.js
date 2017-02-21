@@ -26,7 +26,11 @@ $(function() {
 })
 
 function renderReplies(event) {
-  alert("clicked")
+  fetch(event.target.href)
+    .then(res => res.json())
+    .then((comments) => {
+      console.log(comments);
+    })
 }
 
 function showComment(event) {
@@ -74,4 +78,9 @@ function Comment(id, body, user, comments) {
   this.body = body
   this.user = new User(user.id, user.username, user.email, user.image_url, user.admin, user.banned, user.age, user.location)
   this.comments = comments
+}
+
+Comment.prototype.formatComment = function() {
+  this.templateSource = $('#reply-template')
+  this.template = Handlebars.compile(this.templateSource)
 }
