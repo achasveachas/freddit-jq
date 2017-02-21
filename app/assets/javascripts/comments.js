@@ -62,7 +62,6 @@ function submitReply(event) {
   var posting = $.post(url, values)
 
   posting.done(function(protoComment) {
-    debugger
     var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments, protoComment.created_at)
     var renderedComment = comment.formatComment()
     $(`#reply-to-${id}`).append(renderedComment);
