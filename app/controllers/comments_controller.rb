@@ -1,7 +1,9 @@
 class CommentsController < ApplicationController
-  before_action :find_commentable, only: [:new, :create, :edit, :update]
+  before_action :find_commentable, only: [:index, :new, :create, :edit, :update]
 
   def index
+    @comments = @commentable.comments
+    render json: @comments
   end
 
   def show

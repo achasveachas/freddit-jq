@@ -7,7 +7,7 @@
 <div class="reply-form" id="comment-<%= @conversation.id %>">
   <%= link_to "Reply", new_conversation_comment_path(@conversation), class: 'js-form', :data => {id: @conversation.id} if current_user %>
 </div>
-<time></time>
+
 <script id="reply-template" type="text/x-handlebars-template">
   <div class="reply" id="reply-to-<%= @conversation.id %>">
 
@@ -25,8 +25,8 @@
     </div>
     <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
 
-    <div class="reply" id="reply-to-{{id}}">
-
+    <div class="js-reply" id="reply-to-{{id}}">
+      <a href="/comments/{{id}}/comments">Show {{comments.length}} reply</a>
     </div>
 
   </div>

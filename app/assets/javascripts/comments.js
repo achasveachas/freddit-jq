@@ -18,7 +18,16 @@ $(function() {
     event.preventDefault()
     submitUpdate(event)
   })
+
+  $(document).on('click', '.js-reply', function() {
+    event.preventDefault()
+    renderReplies(event)
+  })
 })
+
+function renderReplies(event) {
+  alert("clicked")
+}
 
 function showComment(event) {
   fetch(event.target.href)
