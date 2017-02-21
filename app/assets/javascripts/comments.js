@@ -32,7 +32,8 @@ function renderReplies(event) {
       $.each(comments, (index, protoComment) => {
         var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments)
         var renderedComment = comment.formatComment()
-        $('#reply-to-' + $(event.target).data('id')).append(renderedComment)
+        $(event.target.parentElement).append(renderedComment)
+
       })
     })
 }
@@ -84,7 +85,15 @@ function Comment(id, body, user, comments) {
   this.comments = comments
 }
 
-Comment.prototype.formatComment = function() {
-  this.templateSource = $('#reply-template').html()
-  this.template = Handlebars.compile(this.templateSource)
+Comment.ready = function(){
+  Comment.templateSource = $("#reply-template").html()
+  Comment.template = Handlebars.compile(Comment.templateSource);
 }
+
+Comment.prototype.formatComment = function() {
+  return Comment.template(this)
+}
+
+$(function(){
+  Comment.ready()
+})

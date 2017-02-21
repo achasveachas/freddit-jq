@@ -12,7 +12,7 @@
   <div class="reply" id="reply-to-<%= @conversation.id %>">
 
     <div class="image">
-      <img src="{{user.image_url}}" width="35" height="35">
+      <img src="{{user.image}}" width="35" height="35">
     </div>
     <div class="body" id="body-{{id}}">
       <p>{{body}}</p><br>
@@ -25,7 +25,7 @@
     </div>
     <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
 
-    <div class="js-reply" id="reply-to-{{id}}">
+    <div class="js-reply" id="reply-to-{{id}}" data-id="{{id}}">
       <a href="/comments/{{id}}/comments">Show {{comments.length}} reply</a>
     </div>
 

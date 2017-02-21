@@ -16,6 +16,6 @@
   <%= link_to "Delete", comment_path(comment), method: :delete if can_edit?(comment) %>
 <% end %>
 
-<div class="js-reply" id="reply-to-<%= comment.id %>">
+<div class="js-reply" id="reply-to-<%= comment.id %>" data-id="<%= comment.id %>">
   <%= link_to "Show #{comment.comments.size} #{'reply'.pluralize(comment.comments.size)}", comment_comments_path(comment) if comment.comments.size > 0 %>
 </div>
