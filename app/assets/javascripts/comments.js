@@ -29,7 +29,11 @@ function renderReplies(event) {
   fetch(event.target.href)
     .then(res => res.json())
     .then((comments) => {
-      console.log(comments);
+      $.each(comments, (index, protoComment) => {
+        var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments)
+        var renderedComment = comment.formatComment()
+        $('#reply-to-' + $(event.target).data('id')).append(renderedComment)
+      })
     })
 }
 
@@ -81,6 +85,6 @@ function Comment(id, body, user, comments) {
 }
 
 Comment.prototype.formatComment = function() {
-  this.templateSource = $('#reply-template')
+  this.templateSource = $('#reply-template').html()
   this.template = Handlebars.compile(this.templateSource)
 }
