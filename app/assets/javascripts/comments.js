@@ -1,4 +1,5 @@
 $(function() {
+  $("time.timeago").timeago()
   $('.js-readMore').click(function (event) {
     event.preventDefault()
     showComment(event)
@@ -30,10 +31,11 @@ function renderReplies(event) {
     .then(res => res.json())
     .then((comments) => {
       $.each(comments, (index, protoComment) => {
-        var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments)
+        var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments, protoComment.created_at)
         var renderedComment = comment.formatComment()
         $(event.target.parentElement).append(renderedComment)
       })
+      $("time.timeago").timeago()
       $(event.target).remove()
     })
 }
@@ -42,7 +44,7 @@ function showComment(event) {
   fetch(event.target.href)
     .then(res => res.json())
     .then((json) => {
-      var comment = new Comment(json.id, json.body, json.user, json.comments)
+      var comment = new Comment(json.id, json.body, json.user, json.comments, json.created_at)
       $(`#comment-id-${comment.id}`).html(comment.body)
     })
 }
@@ -72,17 +74,18 @@ function submitUpdate(event) {
   var posting = $.post(url, values);
 
   posting.done(function(json) {
-    var comment = new Comment(json.id, json.body, json.user, json.comments)
+    var comment = new Comment(json.id, json.body, json.user, json.comments, json.created_at)
     $(`#body-${id}`).html(comment.body);
     $('form').remove()
   })
 }
 
-function Comment(id, body, user, comments) {
+function Comment(id, body, user, comments, created_at) {
   this.id = id
   this.body = body
   this.user = new User(user.id, user.username, user.email, user.image_url, user.admin, user.banned, user.age, user.location)
   this.comments = comments
+  this.created_at = created_at
 }
 
 Comment.ready = function(){
@@ -96,4 +99,5 @@ Comment.prototype.formatComment = function() {
 
 $(function(){
   Comment.ready()
+
 })
