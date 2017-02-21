@@ -33,8 +33,8 @@ function renderReplies(event) {
         var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments)
         var renderedComment = comment.formatComment()
         $(event.target.parentElement).append(renderedComment)
-
       })
+      $(event.target).remove()
     })
 }
 
