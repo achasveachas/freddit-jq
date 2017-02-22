@@ -23,11 +23,16 @@
       <% if current_user %>
         <a class="js-form" data-id="{{id}}" href="/comments/{{id}}/comments/new">Reply</a>
       <% end %>
-      {{#if_eq user.id <%= current_user.id %>}}
+      {{#if <%= current_user && current_user.admin ? "true" : "untrue" %>}}
         <a class="js-form" data-id="{{id}}" href="/comments/<%= @conversation.id %>/comments/{{id}}/edit">Edit</a>
-      {{/if_eq}}
+        <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
+      {{else}}
+        {{#if_eq user.id <%= current_user ? current_user.id : "false" %>}}
+          <a class="js-form" data-id="{{id}}" href="/comments/<%= @conversation.id %>/comments/{{id}}/edit">Edit</a>
+          <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
+        {{/if_eq}}
+      {{/if}}
     </div>
-    <a rel="nofollow" data-method="delete" href="/comments/{{id}}">Delete</a>
 
     <div class="js-reply" id="reply-to-{{id}}" data-id="{{id}}">
       {{#if comments.length}}
