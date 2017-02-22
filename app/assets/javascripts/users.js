@@ -1,10 +1,10 @@
-function User(id, username, email, image_url, admin, banned, age, location) {
-  this.id = id
-  this.username = username
-  this.email = email
-  this.image = image_url
-  this.admin = admin
-  this.banned = banned
-  this.age = age
-  this.location = location
+function User(attributes) {
+  this.id = attributes.id
+  this.username = attributes.username
+  this.email = attributes.email
+  this.image = attributes.image_url
+  this.admin = attributes.admin
+  this.banned = attributes.banned
+  this.age = attributes.age
+  this.location = attributes.location
 }

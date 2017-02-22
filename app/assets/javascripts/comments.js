@@ -31,7 +31,7 @@ function renderReplies(event) {
     .then(res => res.json())
     .then((comments) => {
       $.each(comments, (index, protoComment) => {
-        var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments, protoComment.created_at)
+        var comment = new Comment(protoComment)
         var renderedComment = comment.formatComment()
         $(event.target.parentElement).append(renderedComment)
       })
@@ -44,7 +44,7 @@ function showComment(event) {
   fetch(event.target.href)
     .then(res => res.json())
     .then((json) => {
-      var comment = new Comment(json.id, json.body, json.user, json.comments, json.created_at)
+      var comment = new Comment(json)
       $(`#comment-id-${comment.id}`).html(comment.body)
     })
 }
@@ -62,7 +62,7 @@ function submitReply(event) {
   var posting = $.post(url, values)
 
   posting.done(function(protoComment) {
-    var comment = new Comment(protoComment.id, protoComment.body, protoComment.user, protoComment.comments, protoComment.created_at)
+    var comment = new Comment(protoComment)
     var renderedComment = comment.formatComment()
     $(`#reply-to-${id}`).append(renderedComment);
     $('form').remove()
@@ -76,19 +76,18 @@ function submitUpdate(event) {
   var posting = $.post(url, values);
 
   posting.done(function(json) {
-    var comment = new Comment(json.id, json.body, json.user, json.comments, json.created_at)
+    var comment = new Comment(json)
     $(`#body-${id}`).html(comment.body);
     $('form').remove()
   })
 }
 
-function Comment(id, body, user, comments, created_at) {
-  this.id = id
-  this.body = body
-  this.user = new User(user.id, user.username, user.email, user.image_url, user.admin, user.banned, user.age, user.location)
-  this.comments = comments
-  this.created_at = created_at
-
+function Comment(attributes) {
+  this.id = attributes.id
+  this.body = attributes.body
+  this.user = new User(attributes.user)
+  this.comments = attributes.comments
+  this.created_at = attributes.created_at
 }
 
 
