@@ -88,18 +88,20 @@ function Comment(id, body, user, comments, created_at) {
   this.user = new User(user.id, user.username, user.email, user.image_url, user.admin, user.banned, user.age, user.location)
   this.comments = comments
   this.created_at = created_at
+
 }
 
-Comment.ready = function(){
-  Comment.templateSource = $("#reply-template").html()
-  Comment.template = Handlebars.compile(Comment.templateSource);
-}
 
 Comment.prototype.formatComment = function() {
+  Comment.templateSource = $("#reply-template").html()
+  Comment.template = Handlebars.compile(Comment.templateSource);
   return Comment.template(this)
 }
 
-$(function(){
-  Comment.ready()
-
-})
+Handlebars.registerHelper('if_eq', function(a, b, opts) {
+    if (a == b) {
+        return opts.fn(this);
+    } else {
+        return opts.inverse(this);
+    }
+});
