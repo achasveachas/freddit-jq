@@ -19,7 +19,7 @@ class UsersController < ApplicationController
 
   def edit
     @user ||= User.find_by_id(params[:id])
-    if !can_edit?
+    if !current_user.admin && @user != current_user
       flash[:error] = "You do not have permission to edit this user"
       redirect_to :back
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   def update
     @user ||= User.find_by_id(params[:id])
-    if can_edit?
+    if current_user.admin || @user == current_user
       @user.update(user_params)
       redirect_to @user
     else
