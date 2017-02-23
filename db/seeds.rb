@@ -11,7 +11,7 @@
 end
 
 30.times do
-  c = Conversation.new(topic: Faker::Hipster.sentence, post: Faker::Hipster.paragraph)
+  c = Conversation.new(topic: Faker::Hipster.sentence)
   c.user = User.order("RANDOM()").first
   c.save
 end
