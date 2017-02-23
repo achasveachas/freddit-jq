@@ -6,7 +6,8 @@ Once logged in they can start conversations or join existing ones. freddit uses 
 
 ## Usage
 
-The app can be accessed by firing up the rails server and then visiting localhost:3000 in your browser. A live version will be available on Heroku soon.
+This app lives at https://freddit-jq.herokuapp.com/
+To play with it in production mode, clone it down and run `rails server`, you can then play with it by visiting http://localhost:3000/ in your browser.
 
 ## Contributing
 
