@@ -11,9 +11,14 @@
 # end
 
 30.times do
-  c = Conversation.new(topic: Faker::Hipster.sentence)
-  c.user = User.order("RANDOM()").first
-  c.save
+  conv = Conversation.new(topic: Faker::Hipster.sentence)
+  conv.user = User.order("RANDOM()").first
+  com = conv.comments.new(body: Faker::Hipster.paragraph)
+  com.user = conv.user
+  com.commentable = conv
+  com.conversation = conv
+  conv.save
+  com.save
 end
 
 Conversation.all.each do |convo|
