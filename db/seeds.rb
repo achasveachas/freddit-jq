@@ -10,25 +10,25 @@
 #   User.create(username: Faker::Internet.user_name, email: Faker::Internet.free_email, password: "testtest", password_confirmation: "testtest", image_url: Faker::LoremPixel.image)
 # end
 
-30.times do
-  conv = Conversation.new(topic: Faker::Hipster.sentence)
-  conv.user = User.order("RANDOM()").first
-  com = conv.comments.new(body: Faker::Hipster.paragraph)
-  com.user = conv.user
-  com.commentable = conv
-  com.conversation = conv
-  conv.save
-  com.save
-end
-
-Conversation.all.each do |convo|
-  count = rand(1..5)
-  count.times do
-     c = convo.comments.create(body: Faker::Hipster.paragraph)
-     c.user = User.order("RANDOM()").first
-     c.save
-  end
-end
+# 30.times do
+#   conv = Conversation.new(topic: Faker::Hipster.sentence)
+#   conv.user = User.order("RANDOM()").first
+#   com = conv.comments.new(body: Faker::Hipster.paragraph)
+#   com.user = conv.user
+#   com.commentable = conv
+#   com.conversation = conv
+#   conv.save
+#   com.save
+# end
+#
+# Conversation.all.each do |convo|
+#   count = rand(1..5)
+#   count.times do
+#      c = convo.comments.create(body: Faker::Hipster.paragraph)
+#      c.user = User.order("RANDOM()").first
+#      c.save
+#   end
+# end
 
 Comment.all.each do |comment|
   count = rand(1..3)
