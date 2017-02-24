@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 
   def failed_oauth
     flash[:error] = "Github Authentication Failed"
-    redirect_to :back
+    redirect_to signin_path
   end
 end
 
