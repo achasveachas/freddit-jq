@@ -21,6 +21,7 @@ $(function() {
   })
 
   $(document).on('click', '.js-reply', function(event) {
+
     event.preventDefault();
     renderReplies(event);
   })
