@@ -5,22 +5,22 @@ $(function() {
     showComment(event);
   })
 
-  $(document).on('click', '.js-form', function(event) {
+  $(document).on('click', '.js-form', function() {
     event.preventDefault();
     renderForm(event);
   })
 
-  $(document).on('click', '.js-submit', function(event) {
+  $(document).on('click', '.js-submit', function() {
     event.preventDefault();
     submitReply(event);
   })
 
-  $(document).on('click', '.js-update', function(event) {
+  $(document).on('click', '.js-update', function() {
     event.preventDefault();
     submitUpdate(event);
   })
 
-  $(document).on('click', '.js-reply', function(event) {
+  $(document).on('click', '.js-reply', function() {
 
     event.preventDefault();
     renderReplies(event);
