@@ -1,28 +1,28 @@
 $(function() {
   $("time.timeago").timeago()
-  $('.js-readMore').click(function (event) {
-    event.preventDefault()
-    showComment(event)
+  $('.js-readMore').click(function(event) {
+    event.preventDefault();
+    showComment(event);
   })
 
   $(document).on('click', '.js-form', function(event) {
-    event.preventDefault()
-    renderForm(event)
+    event.preventDefault();
+    renderForm(event);
   })
 
   $(document).on('click', '.js-submit', function(event) {
-    event.preventDefault()
-    submitReply(event)
+    event.preventDefault();
+    submitReply(event);
   })
 
   $(document).on('click', '.js-update', function(event) {
-    event.preventDefault()
-    submitUpdate(event)
+    event.preventDefault();
+    submitUpdate(event);
   })
 
   $(document).on('click', '.js-reply', function(event) {
-    event.preventDefault()
-    renderReplies(event)
+    event.preventDefault();
+    renderReplies(event);
   })
 })
 
