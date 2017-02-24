@@ -12,13 +12,18 @@ $(function() {
 
   $(document).on('click', '.js-submit', function() {
     event.preventDefault();
-    submitReply(event);
+    if (checkFormValue()) {
+      return submitReply(event);
+    }
+    alert("Please input value")
   })
 
   $(document).on('click', '.js-update', function() {
     event.preventDefault();
-    submitUpdate(event);
-  })
+    if (checkFormValue()) {
+      return submitReply(event);
+    }
+    alert("Please input value")  })
 
   $(document).on('click', '.js-reply', function() {
 
@@ -26,6 +31,11 @@ $(function() {
     renderReplies(event);
   })
 })
+
+function checkFormValue() {
+
+  return !!$('textarea').val().trim()
+}
 
 function renderReplies(event) {
   fetch(event.target.href)
@@ -42,6 +52,7 @@ function renderReplies(event) {
 }
 
 function showComment(event) {
+  debugger
   fetch(event.target.href)
     .then(res => res.json())
     .then((json) => {
@@ -97,6 +108,7 @@ Comment.prototype.formatComment = function() {
   Comment.template = Handlebars.compile(Comment.templateSource);
   return Comment.template(this)
 }
+
 
 Handlebars.registerHelper('if_eq', function(a, b, opts) {
     if (a == b) {
