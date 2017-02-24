@@ -24,6 +24,11 @@ class SessionsController < ApplicationController
     login(@user)
     redirect_to edit_user_path(@user)
   end
+
+  def failed_oauth
+    flash[:error] = "Github Authentication Failed"
+    redirect_to :back
+  end
 end
 
   def destroy

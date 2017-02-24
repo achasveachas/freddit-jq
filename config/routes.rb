@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   #Omniauth routes
   get '/auth/github/callback' => 'sessions#create_oauth'
-  get '/auth/failure' => 'index#home'
+  get '/auth/failure' => 'sessions#failed_oauth'
 
   patch 'user/:id/ban' => 'users#ban', as: 'user_ban'
   patch 'user/:id/admin' => 'users#admin', as: 'user_admin'
