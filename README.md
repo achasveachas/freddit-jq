@@ -6,7 +6,7 @@ Once logged in they can start conversations or join existing ones. freddit uses 
 
 ## Usage
 
-This app lives at https://freddit-jq.herokuapp.com/
+This app lives at https://freddit-jq.herokuapp.com/ (for now only works on Chrome)
 To play with it in production mode, clone it down and run `rails server`, you can then play with it by visiting http://localhost:3000/ in your browser.
 
 ## Contributing
