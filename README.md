@@ -4,10 +4,12 @@ Freddit is a basic reddit clone built using Rails with a JQery front-end. Users 
 
 Once logged in they can start conversations or join existing ones. freddit uses JQuery to render reply forms and then display the new reply in the DOM using Handlebars templates. Nested replies are implemented using polymorphic associations on the backend.
 
+This is an updated version of a Sinatra app I made by the same name that can be found [here](https://github.com/achasveachas/freddit)
+
 ## Usage
 
 This app lives at https://freddit-jq.herokuapp.com/ (for now only works on Chrome)
-To play with it in production mode, clone it down and run `rails server`, you can then play with it by visiting http://localhost:3000/ in your browser.
+To play with it in developer mode, clone it down and run `rails server`, you can then play with it by visiting http://localhost:3000/ in your browser.
 
 ## Contributing
 
